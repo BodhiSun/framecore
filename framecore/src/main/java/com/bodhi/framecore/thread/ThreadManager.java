@@ -14,11 +14,12 @@ public class ThreadManager {
 
     private static ThreadManager threadManager;
 
-    private ThreadManager(){}
+    private ThreadManager() {
+    }
 
-    public static ThreadManager getInstance(){
-        if (threadManager==null) {
-            threadManager=new ThreadManager();
+    public static ThreadManager getInstance() {
+        if (threadManager == null) {
+            threadManager = new ThreadManager();
         }
 
         return threadManager;
@@ -26,34 +27,34 @@ public class ThreadManager {
 
     private ScheduledExecutorService scheduledExecutorService;
 
-    public void run(Runnable runnable){
-        if (scheduledExecutorService==null) {
-            scheduledExecutorService= Executors.newScheduledThreadPool(10);
+    public void run(Runnable runnable) {
+        if (scheduledExecutorService == null) {
+            scheduledExecutorService = Executors.newScheduledThreadPool(10);
         }
 
-        if (runnable==null) {
+        if (runnable == null) {
             return;
         }
 
         scheduledExecutorService.submit(runnable);
     }
 
-    public void runDelayed(Runnable runnable,long delay){
-        if (scheduledExecutorService==null) {
-            scheduledExecutorService =Executors.newScheduledThreadPool(10);
+    public void runDelayed(Runnable runnable, long delay) {
+        if (scheduledExecutorService == null) {
+            scheduledExecutorService = Executors.newScheduledThreadPool(10);
         }
 
-        if (runnable==null) {
+        if (runnable == null) {
             return;
         }
 
-        scheduledExecutorService.schedule(runnable,delay, TimeUnit.MILLISECONDS);
+        scheduledExecutorService.schedule(runnable, delay, TimeUnit.MILLISECONDS);
     }
 
     /**
-     *线程睡眠
+     * 线程睡眠
      */
-    public void sleep(long time){
+    public void sleep(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {

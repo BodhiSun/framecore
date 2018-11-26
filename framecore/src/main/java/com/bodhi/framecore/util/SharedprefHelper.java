@@ -12,10 +12,13 @@ public class SharedprefHelper {
 
     private static SharedprefHelper sharedprefHelper;
 
-    private SharedprefHelper(){};
+    private SharedprefHelper() {
+    }
 
-    public static SharedprefHelper getInstance(){
-        if (sharedprefHelper==null) {
+    ;
+
+    public static SharedprefHelper getInstance() {
+        if (sharedprefHelper == null) {
             sharedprefHelper = new SharedprefHelper();
         }
 
@@ -24,8 +27,8 @@ public class SharedprefHelper {
 
     private Context context;
 
-    public void init(Context context){
-        this.context=context;
+    public void init(Context context) {
+        this.context = context;
     }
 
     public String getStoredString(String type, String key) {

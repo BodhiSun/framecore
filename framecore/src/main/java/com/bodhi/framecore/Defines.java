@@ -7,9 +7,9 @@ package com.bodhi.framecore;
  * desc :
  */
 public interface Defines {
-    String KEY_CHANNEL="UMENG_CHANNEL";
+    String KEY_CHANNEL = "UMENG_CHANNEL";
 
-    enum SPType{
+    enum SPType {
         LOGIN,
         APPCONF,
         CACHE

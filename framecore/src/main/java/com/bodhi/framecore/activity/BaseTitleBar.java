@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
  * create time : 2018/11/26 12:05
  * desc :
  */
-public abstract class BaseTitleBar extends RelativeLayout{
+public abstract class BaseTitleBar extends RelativeLayout {
 
     private BaseBarActivity baseBarActivity;
 
@@ -34,16 +34,16 @@ public abstract class BaseTitleBar extends RelativeLayout{
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(layoutId(),this);
+        LayoutInflater.from(context).inflate(layoutId(), this);
         onInit();
     }
 
-    public void bindActivity(BaseBarActivity host){
-        baseBarActivity=host;
+    public void bindActivity(BaseBarActivity host) {
+        baseBarActivity = host;
     }
 
-    public void finishActivity(){
-        if (baseBarActivity!=null) {
+    public void finishActivity() {
+        if (baseBarActivity != null) {
             baseBarActivity.finish();
         }
     }

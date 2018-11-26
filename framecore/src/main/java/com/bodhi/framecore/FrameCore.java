@@ -74,39 +74,39 @@ public class FrameCore {
         return defaultStatusBarColor;
     }
 
-    public void doLog(String tag,String msg){
+    public void doLog(String tag, String msg) {
         if (isDebug) {
-            Log.e(tag,"-"+msg);
+            Log.e(tag, "-" + msg);
         }
     }
 
     /**
      * 剪贴板
      */
-    public void copyToClipboard(String content){
-        ClipboardManager cm = (ClipboardManager)appContext.getSystemService(Context.CLIPBOARD_SERVICE);
-        cm.setPrimaryClip(ClipData.newPlainText("default",content));
+    public void copyToClipboard(String content) {
+        ClipboardManager cm = (ClipboardManager) appContext.getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setPrimaryClip(ClipData.newPlainText("default", content));
     }
 
-    public void copyToClipboard(String label,String content){
+    public void copyToClipboard(String label, String content) {
         ClipboardManager cm = (ClipboardManager) appContext.getSystemService(Context.CLIPBOARD_SERVICE);
-        cm.setPrimaryClip(ClipData.newPlainText(label,content));
+        cm.setPrimaryClip(ClipData.newPlainText(label, content));
     }
 
     /**
      * 隐藏软键盘
      */
-    public void hideIMK(View v){
+    public void hideIMK(View v) {
         InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
     /**
      * 显示软键盘
      */
-    public void showIMK(View v){
-        InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(v,InputMethodManager.RESULT_SHOWN);
+    public void showIMK(View v) {
+        InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(v, InputMethodManager.RESULT_SHOWN);
     }
 
 

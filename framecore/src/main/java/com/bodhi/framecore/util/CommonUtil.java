@@ -13,11 +13,12 @@ public class CommonUtil {
 
     private static CommonUtil commonUtil;
 
-    private CommonUtil(){}
+    private CommonUtil() {
+    }
 
-    public static CommonUtil getInstance(){
-        if (commonUtil==null) {
-            commonUtil=new CommonUtil();
+    public static CommonUtil getInstance() {
+        if (commonUtil == null) {
+            commonUtil = new CommonUtil();
         }
 
         return commonUtil;
@@ -26,27 +27,28 @@ public class CommonUtil {
     /**
      * 数字相关
      */
-    public boolean isNumeric(String str){
+    public boolean isNumeric(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public boolean isMobileNo(String mobil){
+    public boolean isMobileNo(String mobil) {
         return Pattern.compile("^[1][3,4,5,7,8][0-9]{9}$").matcher(mobil).matches();
     }
 
-    private static int[] idsArray = new int[] { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };
+    private static int[] idsArray = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
     /**
      * 验证身份证的号码是否是格式正确的(精确)
+     *
      * @param idCardNumber
      * @return
      */
-    public static boolean isIDCardVerify(String idCardNumber){
-        if(null == idCardNumber){
+    public static boolean isIDCardVerify(String idCardNumber) {
+        if (null == idCardNumber) {
             return false;
         }
 
-        if("".equals(idCardNumber.trim())){
+        if ("".equals(idCardNumber.trim())) {
             return false;
         }
 
@@ -59,8 +61,8 @@ public class CommonUtil {
         }
 
         //下面是验�?8位身份证的最后一位字�?数字是否正确
-        int temp  = 0;
-        if(idCardNumberTrim.length() == 18){
+        int temp = 0;
+        if (idCardNumberTrim.length() == 18) {
             char[] idArray = idCardNumberTrim.toCharArray();
 
             for (int i = 0; i < idArray.length - 1; i++) {
@@ -69,7 +71,7 @@ public class CommonUtil {
                 temp += parseInt * idsArray[i];
             }
             int temp2 = temp % 11;
-            String lastChar  = "";
+            String lastChar = "";
             switch (temp2) {
                 case 0:
                     lastChar = "1";
@@ -106,7 +108,7 @@ public class CommonUtil {
                     break;
             }
             char charAtLast = idCardNumberTrim.charAt(17);
-            if(!(""+charAtLast).equalsIgnoreCase(lastChar)){
+            if (!("" + charAtLast).equalsIgnoreCase(lastChar)) {
                 return false;
             }
         }

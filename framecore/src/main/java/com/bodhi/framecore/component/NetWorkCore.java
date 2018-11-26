@@ -91,31 +91,31 @@ public class NetWorkCore {
 
         mac = NetWork.getMac(appContext);
 
-        ip="";
-        connect_type="unknown";
-        mobile_type="unknown";
+        ip = "";
+        connect_type = "unknown";
+        mobile_type = "unknown";
         wifi_name = "";
 
-        ConnectivityManager cm = (ConnectivityManager)appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo ni = cm.getActiveNetworkInfo();
         NetworkInfo mobNI = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         NetworkInfo wifiNI = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         NetworkInfo etherNI = cm.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
 
-        if(ni == null || !ni.isConnected()){
+        if (ni == null || !ni.isConnected()) {
             return;
         }
 
-        if(wifiNI!=null && wifiNI.isConnected()){
-            connect_type="wifi";
+        if (wifiNI != null && wifiNI.isConnected()) {
+            connect_type = "wifi";
             WifiManager wifiManager = (WifiManager) appContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            WifiInfo wifiInfo =wifiManager.getConnectionInfo();
-            wifi_name =wifiInfo.getSSID();
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            wifi_name = wifiInfo.getSSID();
             ip = NetWork.getWifiIP(wifiInfo);
-        }else if(etherNI!=null&& etherNI.isConnected()){
+        } else if (etherNI != null && etherNI.isConnected()) {
             connect_type = "ethernet";
-        }else if(mobNI!=null && mobNI.isConnected()){
+        } else if (mobNI != null && mobNI.isConnected()) {
             switch (tm.getNetworkType()) {
                 case TelephonyManager.NETWORK_TYPE_LTE:
                 case TelephonyManager.NETWORK_TYPE_IWLAN:
@@ -155,17 +155,17 @@ public class NetWorkCore {
         }
     }
 
-    public boolean isWifi(){
+    public boolean isWifi() {
         ConnectivityManager cm = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
 
-        if(ni==null||!ni.isConnected()){
+        if (ni == null || !ni.isConnected()) {
             return false;
         }
 
         NetworkInfo wifiNI = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        if(wifiNI==null||wifiNI.isConnected()){
+        if (wifiNI == null || wifiNI.isConnected()) {
             return true;
         }
 

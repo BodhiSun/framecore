@@ -13,7 +13,7 @@ import com.bodhi.http.HttpCore;
  * create time : 2018/11/23 17:10
  * desc :
  */
-public abstract class BaseApplication extends Application{
+public abstract class BaseApplication extends Application {
 
     @Override
     public void onCreate() {

@@ -19,19 +19,19 @@ public abstract class DataManager<T extends BaseRespData> {
 
     private Context appContext;
 
-    public void init(Context context){
-        this.appContext=context;
+    public void init(Context context) {
+        this.appContext = context;
         data = newData();
         listeners.clear();
     }
 
-    public void load(final DataRespListener<T> dataRespListener){
-        request(new DataRequestListener<T>(){
+    public void load(final DataRespListener<T> dataRespListener) {
+        request(new DataRequestListener<T>() {
 
             @Override
             public void onResult(T t) {
-                if (t!=null) {
-                    data=t;
+                if (t != null) {
+                    data = t;
                     update(dataRespListener);
                 }
             }
@@ -39,22 +39,22 @@ public abstract class DataManager<T extends BaseRespData> {
     }
 
     private void update(DataRespListener<T> targetListener) {
-        if (targetListener!=null) {
+        if (targetListener != null) {
             targetListener.onData(data);
-        }else{
+        } else {
             for (DataRespListener<T> listener : listeners) {
                 listener.onData(data);
             }
         }
     }
 
-    public boolean hasListener(DataRespListener<T> listener){
-        return listeners.indexOf(listener)>=0;
+    public boolean hasListener(DataRespListener<T> listener) {
+        return listeners.indexOf(listener) >= 0;
     }
 
-    public void registerListener(DataRespListener<T> listener){
+    public void registerListener(DataRespListener<T> listener) {
         int index = listeners.indexOf(listener);
-        if (index>=0) {
+        if (index >= 0) {
             //大于0表示存在注册过，无需重新注册
             return;
         }
@@ -62,7 +62,7 @@ public abstract class DataManager<T extends BaseRespData> {
         listeners.add(listener);
     }
 
-    public void unRegisterListener(DataRespListener<T> listener){
+    public void unRegisterListener(DataRespListener<T> listener) {
         listeners.remove(listener);
     }
 
