@@ -52,14 +52,14 @@ public class App extends BaseApplication {
 
     @Override
     protected SSLParams appSSLParams() {
-        try {
-            InputStream keyIS = getResources().getAssets().open("filekeyname.key");
-            InputStream certIS = getResources().getAssets().open("filecaname.pem");
-
-            return SSLParams.build(keyIS,"",certIS);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            InputStream keyIS = getResources().getAssets().open("filekeyname.key");
+//            InputStream certIS = getResources().getAssets().open("filecaname.pem");
+//
+//            return SSLParams.build(keyIS,"",certIS);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 
