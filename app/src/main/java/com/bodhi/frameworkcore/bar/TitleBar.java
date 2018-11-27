@@ -1,9 +1,11 @@
 package com.bodhi.frameworkcore.bar;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bodhi.framecore.activity.BaseTitleBar;
@@ -22,7 +24,7 @@ import butterknife.OnClick;
 public class TitleBar extends BaseTitleBar {
 
     @BindView(R.id.ll_title_bar)
-    LinearLayout titleBarLL;
+    RelativeLayout titleBarLL;
 
     @BindView(R.id.ll_btn_left)
     LinearLayout leftLL;
@@ -98,7 +100,13 @@ public class TitleBar extends BaseTitleBar {
     }
 
     public void setLeftTextColor(int color) {
-        leftTV.setText(color);
+        leftTV.setTextColor(color);
+    }
+
+    public void setLeftDrawable(int drawable){
+        Drawable drawable1Left=getResources().getDrawable(drawable);
+        leftTV.setCompoundDrawablesWithIntrinsicBounds(drawable1Left,null,null,null);
+//        leftTV.setCompoundDrawablePadding(4);
     }
 
     public void setRightText(String rightText) {

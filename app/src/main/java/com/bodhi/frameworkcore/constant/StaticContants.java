@@ -17,7 +17,7 @@ public class StaticContants {
     public static boolean DEBUG_MODE = true;
 
     //状态栏的背景色
-    public static int STATUS_BAR_COLOR = Color.parseColor("#7a4646");
+    public static int STATUS_BAR_COLOR = Color.parseColor("#e08d8d");
 
     //公参
     public static ParamMap commonParamMap;

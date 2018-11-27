@@ -6,6 +6,7 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.bodhi.framecore.FrameCore;
 import com.bodhi.http.HttpCore;
+import com.bodhi.http.component.SSLParams;
 
 /**
  * @author : Sun
@@ -22,13 +23,13 @@ public abstract class BaseApplication extends Application {
     }
 
     private void init() {
-        HttpCore.getInstance().init(this.appSSLParams());
+        HttpCore.getInstance().init(this,appSSLParams());
         FrameCore.getInstance().init(this);
         FrameCore.getInstance().setDebugMode(isDebugMode());
         FrameCore.getInstance().setDefaultStatusBarColor(defaultStatusBarColor());
     }
 
-    protected abstract Context appSSLParams();
+    protected abstract SSLParams appSSLParams();
 
     protected abstract boolean isDebugMode();
 

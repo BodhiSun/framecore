@@ -23,8 +23,6 @@ import com.jaeger.library.StatusBarUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-
 /**
  * @author : Sun
  * @version : 1.0
@@ -55,6 +53,8 @@ public abstract class BaseBarActivity<T extends BaseTitleBar> extends AppCompatA
         //设置状态栏背景色
         statusBarColor = FrameCore.getInstance().getDefaultStatusBarColor();
         StatusBarUtil.setColor(this, statusBarColor, 0);
+
+        //设置标题栏背景色
         titleLL.setBackgroundColor(statusBarColor);
 
         //设置状态栏字体颜色黑或白
@@ -66,7 +66,6 @@ public abstract class BaseBarActivity<T extends BaseTitleBar> extends AppCompatA
 
         init();
 
-        ButterKnife.bind(this);
     }
 
     private void init() {

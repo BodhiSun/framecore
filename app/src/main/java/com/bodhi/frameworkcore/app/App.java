@@ -10,7 +10,11 @@ import com.bodhi.framecore.component.NetWork;
 import com.bodhi.framecore.component.NetWorkCore;
 import com.bodhi.frameworkcore.constant.StaticContants;
 import com.bodhi.http.component.ParamMap;
+import com.bodhi.http.component.SSLParams;
 import com.bodhi.http.exception.DuplicateParamException;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author : Sun
@@ -47,7 +51,15 @@ public class App extends BaseApplication {
     }
 
     @Override
-    protected Context appSSLParams() {
+    protected SSLParams appSSLParams() {
+        try {
+            InputStream keyIS = getResources().getAssets().open("filekeyname.key");
+            InputStream certIS = getResources().getAssets().open("filecaname.pem");
+
+            return SSLParams.build(keyIS,"",certIS);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
