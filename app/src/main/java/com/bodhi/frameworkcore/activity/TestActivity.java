@@ -28,10 +28,10 @@ public class TestActivity extends BaseBarActivity {
     protected BaseTitleBar titleBar() {
         if (titleBar == null) {
             titleBar = new TitleBar(this);
-            titleBar.title("测试页面");
+            titleBar.title("测试页");
             titleBar.titleColor(Color.WHITE);
             titleBar.setLeftText("返回");
-            titleBar.setLeftTextColor(android.R.color.white);
+            titleBar.setLeftTextColor(Color.WHITE);
             titleBar.setLeftDrawable(R.drawable.back_icon2);
             titleBar.bindActivity(this);
         }
