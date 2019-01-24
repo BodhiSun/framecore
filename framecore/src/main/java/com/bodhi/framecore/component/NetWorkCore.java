@@ -45,6 +45,7 @@ public class NetWorkCore {
     private String county = "";//获取ISO国家码，相当于提供SIM卡的国家码。
     private int cid = -1;//基站编号
     private int lac = -1;//区域位置码
+    private boolean hasNet;//网络是否可用
 
     private Context appContext;
 
@@ -106,6 +107,8 @@ public class NetWorkCore {
         if (ni == null || !ni.isConnected()) {
             return;
         }
+
+        hasNet = true;
 
         if (wifiNI != null && wifiNI.isConnected()) {
             connect_type = "wifi";
@@ -218,5 +221,9 @@ public class NetWorkCore {
 
     public int getLac() {
         return lac;
+    }
+
+    public boolean isHasNet() {
+        return hasNet;
     }
 }

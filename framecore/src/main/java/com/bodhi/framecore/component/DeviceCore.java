@@ -30,7 +30,7 @@ public class DeviceCore {
     private Context appContext;
 
     private String os;
-    private int osVersion;
+    private String osVersion;
     private String brand;
     private String model;
     private String manufacturer;
@@ -49,7 +49,7 @@ public class DeviceCore {
         model = Build.MODEL;
         manufacturer = Build.MANUFACTURER;
         os = "Android";
-        osVersion = Build.VERSION.SDK_INT;
+        osVersion = Build.VERSION.RELEASE;
 
         refresh();
 
@@ -118,7 +118,7 @@ public class DeviceCore {
         return os == null ? "" : os;
     }
 
-    public int getOsVersion() {
+    public String getOsVersion() {
         return osVersion;
     }
 

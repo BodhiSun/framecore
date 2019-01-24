@@ -42,7 +42,7 @@ public class App extends BaseApplication {
                     .param("ip", NetWorkCore.getInstance().getIp())
                     .param("network", NetWorkCore.getInstance().getConnect_type())
                     .param("os", DeviceCore.getInstance().getOs())
-                    .param("osversion", DeviceCore.getInstance().getOsVersion() + "")
+                    .param("osversion", DeviceCore.getInstance().getOsVersion())
                     .param("channel", AppCore.getInstance().getChannel())
                     .param("version", AppCore.getInstance().getVerCode() + "");
         } catch (DuplicateParamException e) {

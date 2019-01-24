@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 102
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -102,7 +102,7 @@ publish {
     userOrg = 'bodhisun'           //bintray.com 注册的用户名
     groupId = 'com.bodhi.framecore'   //以后访问 jcenter上此项目的路径，一般和库项目的包名一致
     artifactId = 'framecore'       //bintray.com 创建的 Package 名
-    publishVersion = '1.0.1'         //版本号
+    publishVersion = '1.0.2'         //版本号
     desc = 'app base framework' //版本说明，随意
     website = 'https://github.com/SunshineNumber1/framecore'    //关于这个开源项目的网站，随意
 }
