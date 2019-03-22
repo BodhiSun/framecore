@@ -107,6 +107,7 @@ public class TitleBar extends BaseTitleBar {
         Drawable drawable1Left=getResources().getDrawable(drawable);
         leftTV.setCompoundDrawablesWithIntrinsicBounds(drawable1Left,null,null,null);
 //        leftTV.setCompoundDrawablePadding(4);
+        leftTV.setVisibility(VISIBLE);
     }
 
     public void setRightText(String rightText) {

@@ -1,20 +1,13 @@
 package com.bodhi.frameworkcore.app;
 
-import android.content.Context;
-
-import com.bodhi.framecore.FrameCore;
 import com.bodhi.framecore.application.BaseApplication;
 import com.bodhi.framecore.component.AppCore;
 import com.bodhi.framecore.component.DeviceCore;
-import com.bodhi.framecore.component.NetWork;
 import com.bodhi.framecore.component.NetWorkCore;
-import com.bodhi.frameworkcore.constant.StaticContants;
+import com.bodhi.frameworkcore.constant.StaticConstants;
 import com.bodhi.http.component.ParamMap;
 import com.bodhi.http.component.SSLParams;
 import com.bodhi.http.exception.DuplicateParamException;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * @author : Sun
@@ -32,10 +25,10 @@ public class App extends BaseApplication {
     }
 
     private void initCommonParamMap() {
-        StaticContants.commonParamMap = ParamMap.create();
+        StaticConstants.commonParamMap = ParamMap.create();
 
         try {
-            StaticContants.commonParamMap
+            StaticConstants.commonParamMap
                     .param("version", AppCore.getInstance().getVerName())
                     .param("device", DeviceCore.getInstance().getModel())
                     .param("device_code", DeviceCore.getInstance().getImei())
@@ -65,11 +58,11 @@ public class App extends BaseApplication {
 
     @Override
     protected boolean isDebugMode() {
-        return StaticContants.DEBUG_MODE;
+        return StaticConstants.DEBUG_MODE;
     }
 
     @Override
     protected int defaultStatusBarColor() {
-        return StaticContants.STATUS_BAR_COLOR;
+        return StaticConstants.STATUS_BAR_COLOR;
     }
 }

@@ -11,7 +11,7 @@ import com.bodhi.http.exception.DuplicateParamException;
  * create time : 2018/11/26 17:10
  * desc :
  */
-public class StaticContants {
+public class StaticConstants {
 
     //log的开关
     public static boolean DEBUG_MODE = true;
